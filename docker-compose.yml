@@ -1,0 +1,16 @@
+services:
+    project_euler:
+        container_name: project_euler
+        build:
+            context: .
+        image: project_euler:latest
+        volumes:
+            - "./:/src"
+        command: ["tail", "-f", "/dev/null"]
+#        ports:
+#            - 80:80
+        networks:
+            - docker_net
+networks:
+    docker_net:
+        driver: bridge
